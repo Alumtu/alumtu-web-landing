@@ -1,0 +1,308 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import dianaSvg from "../assets/diana.svg";
+import innovationSvg from "../assets/innovation.svg";
+import searchSvg from "../assets/search.svg";
+import chatSvg from "../assets/chat.svg";
+import shieldSvg from "../assets/shield.svg";
+---
+
+<Layout title="Acerca de Alumtu - El Futuro de la Educación Personalizada">
+  <Header />
+  <main class="about-page">
+    <section class="hero-about">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="page-title">Acerca de Alumtu</h1>
+          <p class="page-subtitle">
+            Revolucionando la educación a través de conexiones personalizadas
+            entre estudiantes y profesores
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="text-content">
+            <h2 class="section-title">Nuestra Misión</h2>
+            <p class="section-text">
+              En Alumtu, creemos que cada estudiante merece acceso a una
+              educación personalizada y de calidad. Nuestra misión es crear una
+              plataforma que conecte de manera inteligente a estudiantes con
+              profesores especializados, facilitando clases privadas que se
+              adapten a las necesidades específicas de cada alumno.
+            </p>
+            <p class="section-text">
+              Queremos democratizar el acceso a la educación personalizada,
+              haciendo que sea más fácil para los estudiantes encontrar el
+              profesor perfecto y para los educadores compartir su conocimiento
+              de manera efectiva.
+            </p>
+          </div>
+          <div class="visual-content">
+            <div class="mission-card">
+              <div>
+                <Image
+                  src={dianaSvg}
+                  alt="Personalización"
+                  loading="eager"
+                  class="card-icon"
+                />
+              </div>
+              <h3>Personalización</h3>
+              <p>Cada estudiante es único, y así debe ser su educación</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vision section">
+      <div class="container">
+        <div class="content-grid reverse">
+          <div class="visual-content">
+            <div class="vision-card">
+              <div>
+                <Image
+                  src={innovationSvg}
+                  alt="Innovación"
+                  loading="eager"
+                  class="card-icon"
+                />
+              </div>
+              <h3>Innovación</h3>
+              <p>Tecnología al servicio del aprendizaje</p>
+            </div>
+          </div>
+          <div class="text-content">
+            <h2 class="section-title">Nuestra Visión</h2>
+            <p class="section-text">
+              Visualizamos un futuro donde la educación de calidad esté al
+              alcance de todos, sin importar la ubicación geográfica o las
+              limitaciones económicas. Una plataforma global donde profesores
+              expertos y estudiantes motivados se encuentren para crear
+              experiencias de aprendizaje transformadoras.
+            </p>
+            <p class="section-text">
+              Alumtu será la primera opción para aquellos que buscan excelencia
+              educativa personalizada, estableciendo nuevos estándares en la
+              industria de la educación online.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section">
+      <div class="container">
+        <h2 class="section-title centered">¿Qué hace especial a Alumtu?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div>
+              <Image
+                src={searchSvg}
+                alt="Matching Inteligente"
+                class="feature-icon"
+              />
+            </div>
+            <h3>Matching Inteligente</h3>
+            <p>
+              Algoritmos avanzados que conectan estudiantes con profesores
+              basándose en necesidades específicas, estilos de aprendizaje y
+              objetivos académicos.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div>
+              <Image
+                src={chatSvg}
+                alt="Comunicación Fluida"
+                class="feature-icon"
+              />
+            </div>
+            <h3>Comunicación Fluida</h3>
+            <p>
+              Herramientas de comunicación integradas que facilitan la
+              coordinación entre estudiantes y profesores antes, durante y
+              después de las clases.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div>
+              <Image
+                src={shieldSvg}
+                alt="Seguridad Garantizada"
+                class="feature-icon"
+              />
+            </div>
+            <h3>Seguridad Garantizada</h3>
+            <p>
+              Verificación de identidad, sistemas de calificación transparentes
+              y protección de datos para crear un ambiente seguro y confiable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-page {
+    padding-top: 60px;
+  }
+
+  .hero-about {
+    background: #0c2c63;
+    padding: 4rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .content-grid.reverse {
+    direction: rtl;
+  }
+
+  .content-grid.reverse > * {
+    direction: ltr;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title.centered {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .mission {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  .vision {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .mission-card,
+  .vision-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .mission-card h3,
+  .vision-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .features {
+    background: #081f47;
+    backdrop-filter: blur(10px);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

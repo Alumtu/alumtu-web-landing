@@ -1,0 +1,211 @@
+---
+import { Image } from "astro:assets";
+import newsImg from "../assets/news.svg";
+import discountImg from "../assets/discounts.svg";
+---
+
+<section id="newsletter" class="newsletter section">
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h2 class="newsletter-title">¡Únete a la Lista de Espera!</h2>
+        <p class="newsletter-subtitle">
+          Sé parte de los primeros en experimentar Alumtu cuando lancemos
+          oficialmente. Únete a nuestra lista de espera y recibe descuentos
+          exclusivos al estreno de la plataforma.
+        </p>
+        <div class="newsletter-benefits">
+          <div class="benefit">
+            <Image src={discountImg} alt="Descuentos" class="benefit-icon" />
+            <span>Descuentos exclusivos de lanzamiento</span>
+          </div>
+          <div class="benefit">
+            <Image src={newsImg} alt="Noticias" class="benefit-icon" />
+            <span>Actualizaciones exclusivas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="newsletter-form">
+        <form class="signup-form">
+          <div class="form-group">
+            <input
+              type="email"
+              placeholder="Tu correo electrónico"
+              required
+              class="form-input"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            ¡Únete a la Lista de Espera!
+          </button>
+        </form>
+        <p class="privacy-note">
+          Sin spam, solo ofertas exclusivas y notificaciones importantes del
+          lanzamiento. Puedes darte de baja en cualquier momento.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: #081f47;
+  }
+
+  .newsletter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-bottom: 4rem;
+  }
+
+  .newsletter-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .newsletter-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .benefit-icon {
+    font-size: 1.25rem;
+  }
+
+  .newsletter-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-input {
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #ffffff;
+  }
+
+  .btn-primary {
+    background: linear-gradient(45deg, #1e3a8a, #1e40af);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+  }
+
+  .privacy-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .newsletter-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .newsletter-subtitle {
+      text-align: center;
+    }
+
+    .newsletter-form {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".signup-form") as HTMLFormElement;
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get form data
+        const nameInput = form.querySelector(
+          'input[type="text"]'
+        ) as HTMLInputElement;
+        const emailInput = form.querySelector(
+          'input[type="email"]'
+        ) as HTMLInputElement;
+        const selectElement = form.querySelector("select") as HTMLSelectElement;
+
+        if (nameInput && emailInput && selectElement) {
+          const name = nameInput.value;
+          const email = emailInput.value;
+          const type = selectElement.value;
+
+          // Here you would typically send the data to your backend
+          console.log("Form submitted:", { name, email, type });
+
+          // Show success message
+          alert(
+            "¡Bienvenido a la lista de espera de Alumtu! Te notificaremos cuando lancemos con descuentos exclusivos."
+          );
+
+          // Reset form
+          form.reset();
+        }
+      });
+    }
+  });
+</script>

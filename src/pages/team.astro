@@ -1,0 +1,276 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import linkedInIcon from "../assets/linkedin.svg";
+import mailIcon from "../assets/mail.svg";
+
+const founders = [
+  {
+    name: "Donald Zhangallimbay",
+    role: "CO & Co-fundador",
+    description:
+      "Economista con enfoque en innovación educativa y desarrollo de negocios. Experto en estrategias de crecimiento y alianzas estratégicas con más de 10 años de experiencia en el sector.",
+    image:
+      "https://pbs.twimg.com/profile_images/1275078237899513858/IeDGKXK6_400x400.jpg",
+    linkedin: "#",
+    email: "donald.zhangallimbay@alumtu.com",
+  },
+  {
+    name: "Martín Ordóñez Oviedo",
+    role: "CO & Co-fundador",
+    description:
+      "Estratega de marketing digital con experiencia en el sector educativo y tecnológico. Experto en growth hacking y marketing de contenidos con resultados comprobados.",
+    image:
+      "https://sitios.udla.edu.ec/econometria/wp-content/uploads/2022/06/Martin-Ordonez-scaled1.png",
+    linkedin:
+      "https://www.linkedin.com/in/mart%C3%ADn-el%C3%ADas-ord%C3%B3%C3%B1ez-oviedo-7a8369185",
+    email: "martin.ordonez@alumtu.com",
+  },
+  {
+    name: "Emilio Aguilar",
+    role: "CO & Co-fundador",
+    description:
+      "Diseñador UX/UI con pasión por crear experiencias educativas memorables. Especialista en design thinking y metodologías centradas en el usuario con 6 años de experiencia.",
+    image:
+      "https://www.ecuavisa.com/binrepository/1200x600/600c0/600d600/none/11705/QYJD/portada-3_1355264_20240130144246.jpg",
+    linkedin: "#",
+    email: "emilio.aguilar@alumtu.com",
+  },
+  {
+    name: "Alex Córdova",
+    role: "CTO & Co-fundador",
+    description:
+      "Ingeniero de software especializado en sistemas escalables y experiencia de usuario. Con más de 8 años desarrollando aplicaciones web complejas y arquitecturas de microservicios.",
+    image:
+      "https://lh3.googleusercontent.com/a/ACg8ocIOK8sGTbUTSEj3uBZ5uxlUT8oh8nMSunjc2oIviRM80v23mWRing=s288-c-no",
+    linkedin: "https://www.linkedin.com/in/alealcor/",
+    email: "alex.cordova@alumtu.com",
+  },
+];
+---
+
+<Layout title="Nuestro Equipo - Alumtu">
+  <Header />
+  <main class="team-page">
+    <section class="hero-team">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="page-title">Nuestro Equipo</h1>
+          <p class="intro-text">
+            Somos un equipo diverso de profesionales apasionados por la
+            educación y la tecnología. Cada uno de nosotros aporta una
+            perspectiva única y expertise especializado para crear la mejor
+            plataforma de educación personalizada del mercado.
+          </p>
+          <p class="intro-text">
+            Nuestra combinación de experiencia en educación, tecnología, diseño
+            y marketing nos permite abordar los desafíos de la educación moderna
+            desde múltiples ángulos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-members section">
+      <div class="container">
+        <div class="team-grid">
+          {
+            founders.map((founder) => (
+              <div class="team-member">
+                <div class="member-image">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    loading="eager"
+                    width={140}
+                    height={140}
+                  />
+                </div>
+                <div class="member-info">
+                  <h3 class="member-name">{founder.name}</h3>
+                  <p class="member-role">{founder.role}</p>
+                  <p class="member-description">{founder.description}</p>
+
+                  <div class="member-contact">
+                    <a
+                      href={`mailto:${founder.email}`}
+                      class="contact-btn email"
+                    >
+                      <Image src={mailIcon} alt="Email" loading="eager" />
+                    </a>
+                    <a href={founder.linkedin} class="contact-btn linkedin">
+                      <Image
+                        src={linkedInIcon}
+                        alt="LinkedIn"
+                        loading="eager"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .team-page {
+    padding-top: 60px;
+  }
+
+  .hero-team {
+    background: #0c2c63;
+    padding: 4rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title.centered {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .intro-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .team-members {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .team-member {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  .member-image {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .member-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-role {
+    font-size: 1.1rem;
+    color: #e5e7eb;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .member-description {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .member-contact {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .contact-btn:hover {
+    background: white;
+    color: #1e3a8a;
+    transform: translateY(-2px);
+  }
+
+  .team-values {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .join-team {
+    background: linear-gradient(45deg, #1e3a8a, #1e40af);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .team-member {
+      padding: 2rem;
+    }
+  }
+</style>
