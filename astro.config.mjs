@@ -3,6 +3,8 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://ideal-happiness151418.github.io",
+  base: "/alumtu-web-landing/",
   image: {
     remotePatterns: [
       {
