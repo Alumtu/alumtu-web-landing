@@ -121,14 +121,14 @@ alumtu-web-landing/
    En Settings > Pages > Custom domain, ingresa tu dominio:
 
    ```plaintext
-   www.alumtu.com
+   alumtu.com
    ```
 
 2. **Configura los registros DNS**
 
    En tu proveedor de DNS, añade estos registros:
 
-   **Para subdominios (www.alumtu.com):**
+   **Para subdominios (alumtu.com):**
 
    ```plaintext
    CNAME  www  tu-usuario.github.io
@@ -149,7 +149,7 @@ alumtu-web-landing/
    import { defineConfig } from 'astro/config';
 
    export default defineConfig({
-     site: 'https://www.alumtu.com',
+     site: 'https://alumtu.com',
      // Elimina la opción 'base' para dominio personalizado
      image: {
        remotePatterns: [
@@ -164,7 +164,7 @@ alumtu-web-landing/
    Crea `public/CNAME` con tu dominio:
 
    ```plaintext
-   www.alumtu.com
+   alumtu.com
    ```
 
 ### Proceso de Despliegue
@@ -192,7 +192,7 @@ alumtu-web-landing/
 ## 📞 Contacto
 
 - **Email**: info@alumtu.com
-- **Sitio Web**: [www.alumtu.com](https://www.alumtu.com)
+- **Sitio Web**: [alumtu.com](https://alumtu.com)
 
 ## 📄 Licencia
 

@@ -221,6 +221,7 @@ import dianaSvg from "../assets/diana.svg";
   }
 
   .floating-card {
+    min-width: 200px;
     position: absolute;
     animation: float 6s ease-in-out infinite;
     z-index: 1;
@@ -317,27 +318,44 @@ import dianaSvg from "../assets/diana.svg";
     }
 
     .hero-visual {
-      height: 300px;
+      height: 450px;
     }
 
     .floating-card:nth-child(1) {
       top: 5%;
       left: 5%;
+      z-index: 3;
     }
 
     .floating-card:nth-child(2) {
-      top: 20%;
-      right: 5%;
+      top: 25%;
+      right: 10%;
+      z-index: 2;
     }
 
     .floating-card:nth-child(3) {
-      bottom: 5%;
-      left: 25%;
+      bottom: 20%;
+      left: 20%;
+      z-index: 1;
     }
 
     .card {
-      padding: 1.5rem;
-      min-width: 140px;
+      padding: 1.2rem;
+      min-width: 120px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+    }
+
+    .card p {
+      font-size: 0.8rem;
     }
 
     .hero-actions {
