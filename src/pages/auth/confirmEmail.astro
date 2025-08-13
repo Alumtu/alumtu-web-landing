@@ -1,0 +1,211 @@
+---
+// No imports needed as this is a standalone page
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Email Confirmado - Alumtu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="confirmation-card">
+        <div class="check-icon">
+          <svg class="check-svg" viewBox="0 0 52 52">
+            <circle class="check-circle" cx="26" cy="26" r="25" fill="none"
+            ></circle>
+            <path class="check-path" fill="none" d="m16 26 6 6 14-14"></path>
+          </svg>
+        </div>
+        <h1 class="title">¡Email Confirmado!</h1>
+        <p class="message">
+          Tu dirección de correo electrónico ha sido validada exitosamente.
+        </p>
+        <p class="submessage">
+          Ya puedes proceder a ingresar a la plataforma de Alumtu.
+        </p>
+        <a href="/" class="btn-home">Ir a la página principal</a>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0c2c63 25%, #b9b9ca 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .confirmation-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(12, 44, 99, 0.2);
+    animation: slideIn 0.8s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .check-icon {
+    margin: 0 auto 2rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .check-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .check-circle {
+    stroke: #22c55e;
+    stroke-width: 2;
+    stroke-dasharray: 157;
+    stroke-dashoffset: 157;
+    animation: drawCircle 1s ease-in-out 0.2s forwards;
+  }
+
+  .check-path {
+    stroke: #22c55e;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: drawCheck 0.5s ease-in-out 1.2s forwards;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0c2c63;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+
+  .message {
+    font-size: 1.2rem;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+  }
+
+  .submessage {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+  }
+
+  .btn-home {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #0c2c63;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(12, 44, 99, 0.3);
+    animation: fadeInUp 0.6s ease-out 1s both;
+  }
+
+  .btn-home:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(12, 44, 99, 0.4);
+  }
+
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes drawCircle {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes drawCheck {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 640px) {
+    .confirmation-card {
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+
+    .message {
+      font-size: 1.1rem;
+    }
+
+    .check-icon {
+      width: 60px;
+      height: 60px;
+    }
+  }
+</style>
